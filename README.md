@@ -35,11 +35,12 @@ If run with no arguments, nodeconfclient will use mdnssd-min to search for and r
 ```
 Arguments: 
 
-  -h / --host: Specify server hostname manually.
-               (must be used with --port)
-  -p / --port: Specify server port manually.
-  -h / --help: Print version and usage info.
-  -v / --version: Print version info.
+         --host: Specify server hostname manually.
+                 (must be used with --port)
+         --port: Specify server port manually.
+    -h / --help: Print version and usage info.
+ -v / --version: Print version info.
+
 ```
 
 # License #

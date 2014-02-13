@@ -236,9 +236,9 @@ function handle_receive(c)
         if err ~= 'closed' then
           error("Socket error: " .. err)
         else
-          debug("Remove end closed connection")
+          debug("Remote end closed connection")
         end
-        return true
+        return false
       end
 
       debug("Received incoming data")
@@ -452,17 +452,17 @@ function version()
 end
 
 function usage()
-  print("Usage: nodeconfclient.lua")
+  print("Usage: nodeconfclient.lua [--host=localhost] [--port=1337]")
   print()
   print("If run with no arguments, nodeconfclient will use mdnssd-min to search for and resolve node configurator services on the LAN and attempt to connect to each found service until success.")
   print()
   print("Arguments: ")
   print()
-  print("  -h / --host: Specify server hostname manually.")
-  print("               (must be used with --port)")
-  print("  -p / --port: Specify server port manually.")
-  print("  -h / --help: Print version and usage info.")
-  print("  -v / --version: Print version info.")
+  print("         --host: Specify server hostname manually.")
+  print("                 (must be used with --port)")
+  print("         --port: Specify server port manually.")
+  print("    -h / --help: Print version and usage info.")
+  print(" -v / --version: Print version info.")
   print()
 end
 
@@ -492,8 +492,8 @@ if opts['debug'] or opts['d'] then
   debugmode = true
 end
 
-host = opts['host'] or opts['h'] or nil
-port = opts['port'] or opts['p'] or nil
+host = opts['host'] or nil
+port = opts['port'] or nil
 
 if host and port then
   begin_connection(host, port)
