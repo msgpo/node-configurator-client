@@ -1,10 +1,10 @@
 {
         "utils": {
-                "mdnssd_min": "/usr/bin/mdnssd-min"
+                "mdnssd_min": "../mdnssd-min/src/mdnssd-min"
         },
         "client": {
-                "download_path": "/tmp",
+                "download_path": "./",
                 "service_type": "_nodeconf._tcp.local",
-                "ssl_root_cert": "/etc/nodeconf/certs/ca_root.crt"
+                "ssl_root_cert": "ca_root.crt"
         }
 }
