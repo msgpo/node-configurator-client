@@ -15,7 +15,7 @@ meta = {
   name = "node configurator client",
   org = "sudomesh.org",
   desc = "This tool is used in combination with the node configurator server to auto-configure newly flashed routers for peoplesopen.net",
-  version = '0.1.0'
+  version = '0.2.0'
 }
 
 config = nil
