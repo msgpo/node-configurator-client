@@ -9,7 +9,7 @@ require("string")
 json = require("dkjson-min")
 require("getopt_alt")
 
-config_file_path = "config.json"
+config_file_paths = {"config.json", "/etc/nodeconf/config.json"}
 
 meta = {
   name = "node configurator client",
@@ -128,10 +128,17 @@ function connect(ip, port)
 end
 
 function load_config()
-  local f = io.open(config_file_path)
-  local data = f:read("*all")
-  config = json.decode(data)
-  io.close()
+  for i, fpath in ipairs(config_file_paths) do
+    local f = io.open(fpath)
+    if f then
+      local data = f:read("*all")
+      config = json.decode(data)
+      io.close()
+      print(config.service_type)
+      return
+    end
+  end
+  fail("Config file not found")
 end
 
 -- run command
